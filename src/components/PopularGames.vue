@@ -1,5 +1,6 @@
 <template>
     <v-container>
+      <h1>Popular games</h1>
       <v-row>
         <v-col cols="6" md="3" v-for="(item, index) in images" :key="index">
           <v-img
