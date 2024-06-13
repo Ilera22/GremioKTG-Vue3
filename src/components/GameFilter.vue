@@ -19,7 +19,8 @@
           <v-card class="pb-3"         
           height="250"
           width="200" >
-            <v-img :src="item.img"></v-img>
+            <v-img :src="item.img"
+            height="100"></v-img>
             <v-list-item :subtitle="item.subtitle" class="mb-2">
               <template v-slot:title>
                 <strong class="text-h6 mb-2">{{ item.title }}</strong>
