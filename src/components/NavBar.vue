@@ -1,28 +1,82 @@
 <template>
   <div>
-      <v-row class="align-center" no-gutters>
-        <v-col cols="auto" >
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
-        </v-col>
+    <!-- Navigation Drawer -->
+    <v-navigation-drawer v-model="drawer" app temporary>
+      <v-list>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Dropdown 1
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Dropdown 2
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Dropdown 3
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Dropdown 4
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Dropdown 5
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-        <v-col cols="auto">
-          <v-app-bar-title>Application Bar</v-app-bar-title>
-        </v-col>
-<v-spacer></v-spacer>
-        <v-col cols="12" md="5" >
-          <v-text-field
-            v-model="search"
-            density="compact"
-            label="Search"
-            append-inner-icon="mdi-magnify"
-            variant="outlined"
-            flat
-            hide-details
-            single-line
-            class="mx-2"
-          ></v-text-field>
-        </v-col>
-      </v-row>
+    <!-- App Bar -->
+    <v-row class="align-center" no-gutters>
+      <v-col cols="auto" class="burguer-menu">
+        <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+      </v-col>
+
+      <v-col cols="auto">
+        <v-app-bar-title>Application Bar</v-app-bar-title>
+      </v-col>
+
+      <v-spacer></v-spacer>
+      <v-col cols="12" md="5">
+        <v-text-field
+          v-model="search"
+          density="compact"
+          label="Search"
+          append-inner-icon="mdi-magnify"
+          variant="outlined"
+          flat
+          hide-details
+          single-line
+          class="mx-2"
+        ></v-text-field>
+      </v-col>
+    </v-row>
+
+    <!-- Menu Button Row -->
+    <v-row class="bg-red justify-center align-center">
+      <v-col class="bg-blue menu-btn-container">
+        <v-btn variant="text"> Dropdown </v-btn>
+        <v-btn variant="text"> Dropdown </v-btn>
+        <v-btn variant="text"> Dropdown </v-btn>
+        <v-btn variant="text"> Dropdown </v-btn>
+        <v-btn variant="text"> Dropdown </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -31,19 +85,35 @@ export default {
   name: "NavBar",
   data() {
     return {
-      search: ''
+      search: '',
+      drawer: false
     };
+  },
+  methods: {
+    toggleDrawer() {
+      this.drawer = !this.drawer;
+    }
   }
 };
 </script>
 
 <style scoped>
+.burguer-menu {
+  visibility: hidden;
+}
+
+.menu-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 767px) {
+  .burguer-menu {
+    visibility: visible;
+  }
 
-#menu {
-height:250px;
-background-color: thistle;
+  .menu-btn-container {
+    display: none;
+  }
 }
-}
-
 </style>

@@ -2,6 +2,7 @@
   <v-app>
     <v-main>      
       <NavBar/>
+      
       <TabMenu/>
       <PopularGames/>
       <GameFilter/>

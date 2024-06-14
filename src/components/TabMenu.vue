@@ -1,5 +1,5 @@
 <template>
-    <v-row class="hero-container">
+    <v-row class="hero-container pa-3">
       <!-- Columna Izquierda -->
       <v-col cols="12" md="7" >
         <v-card>
@@ -25,8 +25,8 @@
             <v-window v-model="tab">
               <v-window-item value="one">
                 <v-row>
-                  <v-col v-for="(item, index) in items" :key="index" cols="12">
-                    <v-card color="#1F7087">
+                  <v-col v-for="(item, index) in items" :key="index" cols="12" class="py-1">
+                    <v-card variant="flat" class="bg-blue">
                       <div class="d-flex flex-no-wrap justify-space-between">
                         <div>
                           <v-card-title class="text-h6">{{ item.title }}</v-card-title>
@@ -88,8 +88,10 @@
   
   <style>
   .hero-container {
-    width: 85%;
+    width: 90%;
     margin: 0 auto; /* Opcional: Centrar el contenedor */
+    border-radius: 25px;
+    background-color: gray;
   }
   </style>
   
