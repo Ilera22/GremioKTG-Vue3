@@ -3,54 +3,22 @@
     <!-- Navigation Drawer -->
     <v-navigation-drawer v-model="drawer" app temporary>
       <v-list>
-        <v-list-item>
+        <v-list-item v-for="item in items" :key="item.title">
           <v-list-item-content>
-            <v-list-item-title class="title">
-              Dropdown 1
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Dropdown 2
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Dropdown 3
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Dropdown 4
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Dropdown 5
-            </v-list-item-title>
+            <v-list-item-title class="title">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <!-- App Bar -->
-    <v-row class="align-center" no-gutters>
+    <v-row class="align-center no-gutters">
       <v-col cols="auto" class="burguer-menu">
         <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
       </v-col>
-
       <v-col cols="auto">
         <v-app-bar-title>Application Bar</v-app-bar-title>
       </v-col>
-
       <v-spacer></v-spacer>
       <v-col cols="12" md="5">
         <v-text-field
@@ -70,11 +38,7 @@
     <!-- Menu Button Row -->
     <v-row class="bg-red justify-center align-center">
       <v-col class="bg-blue menu-btn-container">
-        <v-btn variant="text"> Dropdown </v-btn>
-        <v-btn variant="text"> Dropdown </v-btn>
-        <v-btn variant="text"> Dropdown </v-btn>
-        <v-btn variant="text"> Dropdown </v-btn>
-        <v-btn variant="text"> Dropdown </v-btn>
+        <v-btn variant="text" v-for="(item, index) in items" :key="index">{{ item.title }}</v-btn>
       </v-col>
     </v-row>
   </div>
@@ -86,7 +50,14 @@ export default {
   data() {
     return {
       search: '',
-      drawer: false
+      drawer: false,
+      items: [
+        { title: 'Dropdown 1' },
+        { title: 'Dropdown 2' },
+        { title: 'Dropdown 3' },
+        { title: 'Dropdown 4' },
+        { title: 'Dropdown 5' },
+      ]
     };
   },
   methods: {
