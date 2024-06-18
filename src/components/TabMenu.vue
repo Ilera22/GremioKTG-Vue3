@@ -86,7 +86,12 @@
   };
   </script>
   
-  <style>
+  <style scoped>
+
+body{
+    margin-top: 15px;
+  }
+
   .hero-container {
     width: 90%;
     margin: 0 auto; /* Opcional: Centrar el contenedor */
